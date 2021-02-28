@@ -14,7 +14,6 @@ import type {
 } from 'next/dist/next-server/lib/utils';
 import { APP_PATH, NEXT_ROOT_ELEMENT_ID } from '../constants';
 import { renderToString } from 'react-dom/server';
-import { HeadManagerContext } from 'next/dist/next-server/lib/head-manager-context';
 import type { DocumentProps } from 'next/document';
 import { renderEnhancedApp } from '../_app';
 import { executeAsIfOnServer } from '../server';
@@ -62,6 +61,7 @@ export default async function serverRenderDocument({
       documentFile: { default: DocumentComponent },
       appFile: { default: AppComponent },
       pageFile: { default: PageComponent },
+      headManagerContextFile: { HeadManagerContext },
     } = pageObject.files.server;
 
     const render = (App: NextApp, Page: NextPage) => {

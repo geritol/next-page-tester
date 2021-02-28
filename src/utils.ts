@@ -94,7 +94,6 @@ export function useMountedState(): () => boolean {
 // mark them as such in testHelpers.
 const predefinedSharedModules = [
   'react',
-  'next/dist/next-server/lib/head-manager-context',
   'next/dist/next-server/lib/router-context',
   'next/dist/next-server/lib/runtime-config',
 ];

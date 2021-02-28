@@ -80,7 +80,6 @@ export default async function getPage({
   // @TODO: Consider printing extended options value behind a debug flag
 
   const headManager = useDocument && initHeadManager();
-
   const makePage = async (
     options: ExtendedOptions
   ): Promise<MakePageResult> => {

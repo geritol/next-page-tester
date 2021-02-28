@@ -9,6 +9,7 @@ import type { NextRouter } from 'next/router';
 import type { createResponse, createRequest } from 'node-mocks-http';
 import type { ParsedUrlQuery } from 'querystring';
 import type { DocumentType, Enhancer } from 'next/dist/next-server/lib/utils';
+import { HeadManagerContext } from 'next/dist/next-server/lib/head-manager-context';
 import { RuntimeEnvironment } from './constants';
 import DefaultError from 'next/error';
 import DefaultApp from './_app/DefaultApp';
@@ -124,11 +125,16 @@ export class CustomError extends Error {
 
 export type NextFile = NextErrorFile | NextPageFile;
 
+export type headManagerContextFile = {
+  HeadManagerContext: typeof HeadManagerContext;
+};
+
 // Next files: this are the files necessary to render a Next page
 export type NextPageFiles<PageFile extends NextFile> = {
   documentFile: NextDocumentFile;
   appFile: NextAppFile;
   pageFile: PageFile;
+  headManagerContextFile: headManagerContextFile;
 };
 
 export type NextExistingPageFiles = NextPageFiles<NextPageFile>;

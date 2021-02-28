@@ -10,6 +10,7 @@ import type {
   MultiEnv,
   NextFile,
   NextPageFiles,
+  headManagerContextFile,
 } from './commonTypes';
 
 // Get Document, App and Page files
@@ -25,6 +26,9 @@ function loadPageFiles<PageFile extends NextFile>({
     appFile: getAppFile({ options }),
     pageFile: loadFile<PageFile>({
       absolutePath: absolutePagePath,
+    }),
+    headManagerContextFile: loadFile<headManagerContextFile>({
+      absolutePath: 'next/dist/next-server/lib/head-manager-context',
     }),
   };
 }
